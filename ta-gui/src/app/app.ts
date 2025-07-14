@@ -11,9 +11,9 @@ import { NgModule } from '@angular/core';
   styleUrl: './app.css'
 })
 export class App {
+    constructor(private alunoService: AlunoService) {}
     protected readonly title = signal('ta-gui');
     aluno: Aluno = {nome: "", cpf: "", email: ""};
-    alunoService = new AlunoService();
     alunos: Aluno[] = [];
     cpfduplicado: boolean = false;
 
