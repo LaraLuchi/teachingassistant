@@ -13,14 +13,14 @@ import { NgModule } from '@angular/core';
 export class App {
     constructor(private alunoService: AlunoService) {}
     protected readonly title = signal('ta-gui');
-    aluno: Aluno = {nome: "", cpf: "", email: ""};
+    aluno: Aluno = new Aluno();
     alunos: Aluno[] = [];
     cpfduplicado: boolean = false;
 
-     gravar(a: Aluno): void {
-      if (this.alunoService.gravar(a)) {
+      criarAluno(a: Aluno): void {
+      if (this.alunoService.criar(a)) {
        this.alunos.push(a);
-       this.aluno = {nome: "", cpf: "", email: ""};
+       this.aluno = new Aluno();
       } else {
         this.cpfduplicado = true;
       }
@@ -28,6 +28,11 @@ export class App {
     onMove(): void {
       this.cpfduplicado = false;
   }
+
+
+   atualizarAluno(aluno: Aluno): void {
+      this.alunoService.atualizar(aluno);
+   }
 }
 
 
