@@ -7,13 +7,15 @@ import { Component, signal } from '@angular/core';
   standalone: false,
   styleUrl: './app.css'
 })
-export class AppComponent {
-    aluno: Aluno = {nome: "", cpf: "", email: ""};
+export class App {
+    protected readonly title = signal('ta-gui');
+    aluno: Aluno = {nome: "", cpf: "", email: "", github: ""};
 }
 
 export class Aluno {
   nome: string;
   cpf: string;
   email: string;
+  github: string;
 }
 
